@@ -1,0 +1,44 @@
+Creamsicle is a Rainmeter skin that displays realtime hardware values!
+
+Why use it?
+Utilizing Rainmeter the values can be displayed
+in a nice fashion as well as very discrete values
+such as specific core voltages may be read using
+HWiNFO!
+
+Dependicies:
+Rainmeter: https://www.rainmeter.net/
+HWiNFO64: https://www.hwinfo.com/download.php
+
+Hopefully not many, but depending on your hardware setup
+variables may need to be changed to work properly.
+To do so modify the values in the HWiNFO.inc with the values 
+in the HWiNFOSharedMemoryViewer. This may take some digging arround.
+
+Example:
+I want to read the fan speed of my mobo's cpu fan header.
+In HWiNFOSharedMemoryViewer I find my mobo, and find CPU:
+Here we see the mobo's ID and Instance, as well as the
+CPU fan's ID, Type, Units, Current, Minimum, Maximum, Average
+Modify the values in HWiNFO.inc appropriately:
+These values may be different for you!
+MOBO-SID=0xf7067930
+MOBO-SIN=0x0
+MOBO-FAN-CPU=0x3000001
+
+Then in Rainmeter I make a lookup and save as meter
+[MOBO_FAN_CH2]
+Measure=Plugin
+Plugin=HWiNFO.dll
+HWiNFOSensorID=#MOBO-SID#
+HWiNFOSensorInstance=#MOBO-SIN#
+HWiNFOEntryId=#MOBO-FAN-CH2#
+HWiNFOType=CurrentValue
+
+Then have another meter display it:
+[Meter_MOBO_FAN_CH2]
+Meter=String
+X=0
+Y=0
+MeasureName=MOBO_FAN_CH2
+Text="%1RPM"
