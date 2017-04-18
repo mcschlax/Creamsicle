@@ -1,3 +1,21 @@
+;----------------------------------
+;Change these values accoring
+;to HWiNFOSharedMemoryViewer.exe
+;
+;These are entirely dependent on
+;the hardware setup so if something
+;breaks verify these are the correct
+;values.
+;
+;Examples:
+;Simply plugging in an hdmi into a
+;motherboard with an intel chip
+;may activate the iGPU, which may
+;change the values associated with
+;the dedicated GPU.
+;Similar for adding another Drive...
+;
+;-------------------------------------
 [Variables]
 
 ; System
