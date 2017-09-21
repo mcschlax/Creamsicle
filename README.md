@@ -1,3 +1,5 @@
+# CREAMSICLE 2.0 is out with major changes, check that one instead!
+
 # Creamsicle
 A Rainmeter skin that displays realtime hardware values!
 
